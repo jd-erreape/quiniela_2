@@ -1,23 +1,11 @@
-let createSharedSymLink = (shipit) => {
+let postDeploy = (shipit) => {
   let currentPath = `${process.env.SHIPIT_DEPLOY_TO}/current`;
   let sharedPath = `${process.env.SHIPIT_DEPLOY_TO}/shared`;
+  let envVars = `CURRENT_PATH=${currentPath} SHARED_PATH=${sharedPath}`;
 
-  shipit.remote(`ln -s ${sharedPath} shared`, {
+  shipit.remote(`${envVars} ./post_deploy.sh`, {
     cwd: currentPath
   })
-  shipit.remote(`ln -s ${sharedPath}/.env .env`, {
-    cwd: currentPath
-  })
-};
-
-let installNodeModules = (shipit) => {
-  let currentPath = `${process.env.SHIPIT_DEPLOY_TO}/current`;
-
-  shipit.remote(`npm install`, {
-    cwd: currentPath
-  }).then((res) => {
-    // Do something
-  });
 };
 
 module.exports = function (shipit) {
@@ -44,7 +32,6 @@ module.exports = function (shipit) {
   });
 
   shipit.on('published', (res) => {
-    createSharedSymLink(shipit);
-    installNodeModules(shipit);
+    postDeploy(shipit);
   })
 };
