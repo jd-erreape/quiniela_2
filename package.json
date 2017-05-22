@@ -9,12 +9,17 @@
   "author": "Juan de Dios Herrero",
   "license": "UNLICENSED",
   "dependencies": {
+    "cheerio": "^0.22.0",
     "dotenv": "^4.0.0",
     "google-auth-library": "^0.10.0",
-    "googleapis": "^19.0.0"
+    "googleapis": "^19.0.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "request-promise-native": "^1.0.4"
   },
   "devDependencies": {
     "shipit": "^1.0.2",
+    "shipit-cli": "^3.0.0",
     "shipit-deploy": "^2.4.0"
   }
 }

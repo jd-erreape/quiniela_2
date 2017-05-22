@@ -32,8 +32,7 @@ module.exports = () => {
  * @param {Object} credentials The authorization client credentials.
  */
 function authorize(credentials) {
-	console.log(credentials);
-  var clientSecret = credentials.installed.client_secret;
+	var clientSecret = credentials.installed.client_secret;
   var clientId = credentials.installed.client_id;
   var redirectUrl = credentials.installed.redirect_uris[0];
   var auth = new googleAuth();
