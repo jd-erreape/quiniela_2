@@ -3,13 +3,15 @@ const sample = (items) => {
 };
 
 const values = () => {
-  let arr = [];
+  return new Promise((resolve, reject) => {
+    let arr = [];
 
-  for(let i = 0; i < 15; i++){
-    arr.push([sample([1,'X',2])])
-  };
+    for(let i = 0; i < 15; i++){
+      arr.push(sample([1,'X',2]))
+    };
 
-  return arr;
+    resolve(arr);
+  });
 };
 
 module.exports = values;

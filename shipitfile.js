@@ -20,7 +20,8 @@ module.exports = function (shipit) {
       ignores: ['.git', 'node_modules', 'shipitfile.js'],
       keepReleases: 2,
       deleteOnRollback: false,
-      shallowClone: true
+      shallowClone: true,
+      branch: 'master'
     },
     staging: {
       servers: process.env.SHIPIT_SERVERS

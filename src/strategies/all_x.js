@@ -1,11 +1,13 @@
 const values = () => {
-  let arr = [];
+  return new Promise((resolve, reject) => {
+    let arr = [];
 
-  for(let i = 0; i < 15; i++){
-    arr.push(['X'])
-  };
+    for(let i = 0; i < 15; i++){
+      arr.push('X')
+    };
 
-  return arr;
+    resolve(arr);
+  });
 };
 
 module.exports = values;
