@@ -3,7 +3,7 @@ module.exports = (providerInfo) => {
   const scrapper = require('../../../src/scrappers/main');
   const describeMethod = providerInfo.pending ? describe.skip : describe
 
-  describeMethod(`Integration - ${providerInfo}`, function() {
+  describeMethod(`Integration - ${providerInfo.providerName}`, function() {
     this.timeout(15000);
 
     const scrappedContent = () => {
