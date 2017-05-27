@@ -30,20 +30,13 @@ const classicForecast = (teamAForecast, teamBForecast) => {
 }
 
 const forecastFor = (forecastPercentages, forecastType) => {
-  if (forecastType === 'classic') {
-    return [
-      ...forecastPercentages.slice(0, 14).map((forecastForMatch) => {
-        return selectSign([1,'X',2], Object.values(forecastForMatch));
-      }),
-      classicForecast(...forecastPercentages.slice(forecastPercentages.length - 2))
-    ];
-  }
+  const lastElemForecast = forecastType === 'classic' ? classicForecast : goalsForecast
 
   return [
     ...forecastPercentages.slice(0, 14).map((forecastForMatch) => {
       return selectSign([1,'X',2], Object.values(forecastForMatch));
     }),
-    goalsForecast(...forecastPercentages.slice(forecastPercentages.length - 2))
+    lastElemForecast(...forecastPercentages.slice(forecastPercentages.length - 2))
   ];
 }
 

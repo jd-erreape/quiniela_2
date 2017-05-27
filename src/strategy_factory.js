@@ -19,7 +19,7 @@ module.exports = (strategy, options={}) => {
     const strategyConstructor = require(`${__dirname}/strategies/${strategy}.js`);
 
     return strategyConstructor(strategyOptions(options));
-  } else {
-    throw 'ERR: STRATEGY NOT SUPPORTED';
   }
+
+  throw 'ERR: STRATEGY NOT SUPPORTED';
 }

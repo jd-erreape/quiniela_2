@@ -44,35 +44,17 @@ module.exports = (providerName) => {
     }
   };
 
-  return Promise.all([
-    // Teams Extraction
+  return (
     rp(options).
-      then(function ($) {
-        return provider.extractTeams($);
+      then(($) => {
+        return [
+          provider.extractTeams($),
+          provider.extractForecastPercentages($),
+          utils.forecastFor(provider.extractForecastPercentages($), 'goals'),
+          utils.forecastFor(provider.extractForecastPercentages($), 'classic')
+        ]
       }).
-      catch(() => 'error'),
-
-    // Forecast percentages
-    rp(options).
-      then(function ($) {
-        return provider.extractForecastPercentages($);
-      }).
-      catch(() => 'error'),
-
-    // New Goals Forecast values
-    rp(options).
-      then(function ($) {
-        return utils.forecastFor(provider.extractForecastPercentages($), 'goals');
-      }).
-      catch(() => 'error'),
-
-    // Classic Forecast values
-    rp(options).
-      then(function ($) {
-        return utils.forecastFor(provider.extractForecastPercentages($), 'classic');
-      }).
+      then((values) => utils.stateFor(...values)).
       catch(() => 'error')
-  ]).then((values) => {
-    return utils.stateFor(...values);
-  });
+  )
 }
