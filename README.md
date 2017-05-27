@@ -1,3 +1,3 @@
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/jd-erreape/quiniela)
+[![Code Climate](https://codeclimate.com/github/jd-erreape/quiniela/badges/gpa.svg)](https://codeclimate.com/github/jd-erreape/quiniela)
 
 # quiniela
