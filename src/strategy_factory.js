@@ -1,10 +1,9 @@
-const fs = require('fs');
-
 // Available strategies
 const STRATEGIES = [
   'all_x',
   'random',
-  'scrapping'
+  'scrapping',
+  'average'
 ];
 
 const strategyOptions = (options) => {

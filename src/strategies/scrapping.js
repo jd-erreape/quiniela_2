@@ -1,9 +1,5 @@
+const PROVIDERS = require('../scrappers/list');
 const scrapper = require('../scrappers/main');
-
-const PROVIDERS = [
-  'elquinielista',
-  'ventura24'
-];
 
 module.exports = (opts) => {
   if(PROVIDERS.indexOf(opts.provider) !== -1) {
