@@ -2,7 +2,7 @@ const extractForecastFor = ($row, id) => {
   const predictionString = $row.find(id).text().match(/\d+/) &&
     $row.find(id).text().match(/\d+/)[0];
 
-  return parseInt(predictionString || 0);
+  return parseInt(predictionString || 0, 10);
 }
 
 const extractNonProcessedTeamsArray = ($) => {
@@ -18,7 +18,7 @@ const extractNonProcessedTeamsArray = ($) => {
 
     return {
       team_a: teams[0],
-      team_b: teams[1],
+      team_b: teams[1]
     }
   }).get();
 };
@@ -29,7 +29,7 @@ const extractTeams = ($) => {
   return [
     ...nonProcessedTeamsArray.slice(0, -2), {
       team_a: nonProcessedTeamsArray.slice(-2)[0].team_a,
-      team_b: nonProcessedTeamsArray.slice(-2)[1].team_a,
+      team_b: nonProcessedTeamsArray.slice(-2)[1].team_a
     }
   ]
 };
@@ -50,5 +50,5 @@ const extractForecastPercentages = ($) => {
 module.exports = {
   uri: 'http://www.elquinielista.com/Quinielista/estimacion-quinielas',
   extractTeams,
-  extractForecastPercentages,
+  extractForecastPercentages
 }

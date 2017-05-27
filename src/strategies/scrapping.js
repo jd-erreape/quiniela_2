@@ -13,7 +13,7 @@ module.exports = (opts) => {
           return state.forecast.classic
         });
     };
-  } else {
-    throw 'ERR: PROVIDER FOR SCRAPPING NOT SUPPORTED';
-  };
+  }
+
+  throw 'ERR: PROVIDER FOR SCRAPPING NOT SUPPORTED';
 };

@@ -1,3 +1,4 @@
+const strategyFactory = require('../strategy_factory');
 const authorizeAction = require('../utils/authorize');
 const writeRow = require('../utils/write_row');
 
@@ -13,17 +14,15 @@ const wrapArrayIntoArray = (arr) => {
 };
 
 module.exports = (strategy, command) => {
-  const strategyFactory = require('../strategy_factory');
-
   Promise.all([
     authorizeAction(),
-    strategyFactory(strategy, command.parent)(),
+    strategyFactory(strategy, command.parent)()
   ]).then((result) => {
     writeRow({
       auth: result[0],
       spreadsheetId,
       range,
-      values: wrapArrayIntoArray(result[1]),
+      values: wrapArrayIntoArray(result[1])
     });
   });
 }

@@ -10,8 +10,9 @@ module.exports = (providerInfo) => {
       if (this._scrappedContent) {
         return this._scrappedContent
       }
+      this._scrappedContent = scrapper(providerInfo.scrapperName)
 
-      return this._scrappedContent = scrapper(providerInfo.scrapperName)
+      return this._scrappedContent;
     };
 
     describe('teams', function () {

@@ -11,7 +11,7 @@ const extractTeams = ($) => {
 
     return {
       team_a: teams[0],
-      team_b: teams[1],
+      team_b: teams[1]
     }
   }).get();
 };
@@ -45,5 +45,5 @@ const extractForecastPercentages = ($) => {
 module.exports = {
   uri: 'https://www.ventura24.es/pronosticos-quiniela',
   extractTeams,
-  extractForecastPercentages,
+  extractForecastPercentages
 }

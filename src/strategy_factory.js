@@ -4,13 +4,13 @@ const fs = require('fs');
 const STRATEGIES = [
   'all_x',
   'random',
-  'scrapping',
+  'scrapping'
 ];
 
 const strategyOptions = (options) => {
   // Extract just strategy related options (to be more expresive here)
   return {
-    provider: options.provider,
+    provider: options.provider
   };
 }
 

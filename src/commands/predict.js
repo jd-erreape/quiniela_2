@@ -1,6 +1,6 @@
-module.exports = (strategy, command) => {
-  const strategyFactory = require('../strategy_factory');
+const strategyFactory = require('../strategy_factory');
 
+module.exports = (strategy, command) => {
   strategyFactory(strategy, command.parent)()
     .then(console.log)
 }

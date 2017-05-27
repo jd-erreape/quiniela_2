@@ -37,7 +37,7 @@ const forecastFor = (forecastPercentages, forecastType) => {
       }),
       classicForecast(...forecastPercentages.slice(forecastPercentages.length - 2))
     ];
-  };
+  }
 
   return [
     ...forecastPercentages.slice(0, 14).map((forecastForMatch) => {
@@ -53,7 +53,7 @@ const stateFor = (teams, forecastPercentages, goalsForecast, classicForecast) =>
     forecastPercentages,
     forecast: {
       goals: goalsForecast,
-      classic: classicForecast,
+      classic: classicForecast
     }
   }
 }
@@ -61,5 +61,5 @@ const stateFor = (teams, forecastPercentages, goalsForecast, classicForecast) =>
 module.exports = {
   debugResult,
   forecastFor,
-  stateFor,
+  stateFor
 }
